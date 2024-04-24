@@ -1,0 +1,12 @@
+1. Crear la base de datos
+    campos bbdd: id, nombre, descripcion, estado, fecha_imi, fecha_act
+
+2. Crear el php con la conexion y probarla
+
+3. update, delete, index, conexion + css
+
+4. Probar el select en el fichero index atravez de la respuesta (el texto, mas icono..)
+
+5. crear el formulario (primero el insert,)
+
+6. crear el formulario (ahora el update y el delete (ICONOS))
