@@ -37,13 +37,14 @@ if ($_POST) {
     $titulo = $_POST["titulo"];
     $estado = $_POST["estado"];
     $colorines = $colores[$estado];
+    $fecha_user = $_POST["fecha_user"];
 
     echo "Colorines :".$colorines;
 
 
-    $insert = "INSERT INTO app (estado, titulo, estado_user, descripcion) values (?,?,?,?)";
+    $insert = "INSERT INTO app (estado, titulo, estado_user, descripcion, fecha_user) values (?,?,?,?,?)";
     $insert_prepare = $conn->prepare($insert);
-    $insert_prepare->execute([$estado, $titulo, $colorines, $descripcion]);
+    $insert_prepare->execute([$estado, $titulo, $colorines, $descripcion, $fecha_user]);
 
     $insert_prepare = null;
     $conn = null;
@@ -90,7 +91,8 @@ if ($_POST) {
                         </div>
 
                         <div class="col-sm-3 text-end">
-                            <a href="index.php?id=<?= $row["id"] ?>&titulo=<?= $row["titulo"] ?>&estado=<?= $row["estado"] ?>&descripcion=<?= $row["descripcion"] ?>">✏️</a>
+                            <span><?= $row["fecha_user"] ?></span>
+                            <a href="index.php?id=<?= $row["id"] ?>&titulo=<?= $row["titulo"] ?>&estado=<?= $row["estado"] ?>&descripcion=<?= $row["descripcion"] ?>&fecha_user=<?= $row["fecha_user"] ?>">✏️</a>
                             <a href="delete.php?id=<?= $row["id"] ?>">🗑️</a>
                         </div>
                     </div>
@@ -114,6 +116,10 @@ if ($_POST) {
                             <input type="hidden" name="id" value='<?= $_GET['id']?>'>
                             <label for="titulo" class="form-label">descripción</label>
                             <input type="text" name="descripcion" class="form-control" id="descripcion" aria-describedby="descripcion" value='<?=$_GET['descripcion'] ?>'>
+                        </div>
+                        <div class="mb-3">
+                                <label for="fecha_user" class="form-label">Fecha</label>
+                                <input type="date" name="fecha_user" class="form-control" id="fecha_user" aria-describedby="fecha_user" value="<?= $_GET["fecha_user"] ?>"> 
                         </div>
                         <div class="mb-3">
                             <label for="estado" class="form-label">Estado:</label>
@@ -151,8 +157,9 @@ if ($_POST) {
                                 <label for="descripcion" class="form-label">Descripción</label>
                                 <input type="text" name="descripcion" class="form-control" id="descripcion" aria-describedby="descripcion">
                             </div>
-                            <div>
-                                
+                            <div class="mb-3">
+                                <label for="fecha_user" class="form-label">Fecha</label>
+                                <input type="date" name="fecha_user" class="form-control" id="fecha_user" aria-describedby="fecha_user"> 
                             </div>
                             <div class="mb-3">
                                 <label for="estado" class="form-label">Estado:</label>
