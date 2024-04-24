@@ -13,7 +13,7 @@ echo $colores[$_GET['estado_user']];
 $id = $_GET['id'];
 $titulo = $_GET['titulo'];
 $estado = $_GET['estado'];
-$colorines = $colores[$_GET['estado_user']];
+$colorines = $colores[$_GET['estado']];
 $descripcion = $_GET['descripcion'];
 
 // select * from info_colores where id = $_GET['id'];

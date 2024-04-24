@@ -53,11 +53,11 @@ if ($_POST) {
 
 
 
-if ($_GET) {
-    echo $_GET['id'],"<br>";
-    echo $_GET['titulo'],"<br>";
-    echo $_GET['estado'],"<br>";
-}
+// if ($_GET) {
+//     echo $_GET['id'],"<br>";
+//     echo $_GET['titulo'],"<br>";
+//     echo $_GET['estado'],"<br>";
+// }
 ?>
 
 
@@ -67,10 +67,10 @@ if ($_GET) {
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizacion de tareas</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -86,7 +86,7 @@ if ($_GET) {
                 <?php foreach ($resultado_select as $row) : ?>
                     <div style="color: white; background-color: <?= $row["estado"] ?>" class="row alert" role="alert">
                         <div class="col-sm-9">
-                          <?= $row["titulo"] . " : " . $row["descripcion"] ?> 
+                          <h2><?= $row["titulo"]?></h2><p><?=$row["descripcion"]?></p>
                         </div>
 
                         <div class="col-sm-3 text-end">
@@ -150,6 +150,9 @@ if ($_GET) {
                             <div class="mb-3">
                                 <label for="descripcion" class="form-label">Descripción</label>
                                 <input type="text" name="descripcion" class="form-control" id="descripcion" aria-describedby="descripcion">
+                            </div>
+                            <div>
+                                
                             </div>
                             <div class="mb-3">
                                 <label for="estado" class="form-label">Estado:</label>
