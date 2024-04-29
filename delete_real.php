@@ -8,11 +8,11 @@ $estado_user = "eliminado";
 // echo $id;
 
 
-$delete = "UPDATE app SET estado = ?, estado_user = ? WHERE id = ?";
+$delete = "DELETE FROM app WHERE id = ?";
 $delete_prepare = $conn->prepare($delete);
-$delete_prepare->execute([$estado,$estado_user,$id]);
+$delete_prepare->execute([$id]);
 
 $delete_prepare = null;
 $conn = null;
 
-header('location:index.php');
+header("location: index%20_delete.php");

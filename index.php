@@ -9,6 +9,7 @@ include_once "colores.php";
 
 
 $select = "SELECT * FROM app
+WHERE estado != 'white'
 ORDER BY 
   CASE 
       WHEN estado = 'darkred' THEN 1
@@ -78,6 +79,15 @@ if ($_POST) {
 
     <header>
         <h1 class="text-center m-5">To Do APP</h1>
+        
+        <a href="index _delete.php">
+            <div>
+                <img src="img/papelera.png" alt="papelera de reciclaje">
+                <p>Elementos borrados</p>
+            </div>
+        </a>
+
+</nav>
     </header>
 
     <main class="container">
